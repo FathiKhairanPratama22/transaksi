@@ -34,19 +34,21 @@ services:
     container_name: mysql-init
     depends_on:
       - mysql
-    # Tunggu MySQL ready, lalu import penjualan.sql KESELAMATAN DI SINI
+    # 💡 Tidak pakai -p di command line, pakai MYSQL_PWD
+    environment:
+      MYSQL_PWD: rootpassword
     command: >
       sh -c "
         echo 'Waiting for MySQL...';
-        until mysqladmin ping -hmysql -uroot -prootpassword --silent; do
+        until mysqladmin ping -hmysql -uroot --silent; do
           sleep 1;
         done;
         echo 'MySQL is up, running init script...';
-        mysql -hmysql -umyuser -pmypassword mydb < /init/penjualan.sql;
+        mysql -hmysql -uroot mydb < /init/penjualan.sql;
         echo 'Init done.';
       "
     volumes:
-      - ./db/penjualan.sql:/init/penjualan.sql    # Mount script init, Auto import SQL saat pertama kali dijalankan
+      - ./db/penjualan.sql:/init/penjualan.sql
     restart: "no"
     networks:
       - backend
@@ -68,12 +70,10 @@ services:
     networks:
       - backend
 
-# 🌐 Networks - Komunikasi Antar Container
 networks:
   backend:
     driver: bridge
 
-# 📦 Volumes - Persistent Storage
 volumes:
   mysql-data:
     driver: local
