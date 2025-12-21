@@ -1,4 +1,4 @@
-package ui.ft.ccit.faculty.transaksi.pemasok;
+package ui.ft.ccit.faculty.transaksi.pemasok.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

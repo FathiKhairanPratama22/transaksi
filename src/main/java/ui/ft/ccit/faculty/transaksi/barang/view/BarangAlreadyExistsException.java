@@ -1,4 +1,4 @@
-package ui.ft.ccit.faculty.transaksi.barang;
+package ui.ft.ccit.faculty.transaksi.barang.view;
 
 public class BarangAlreadyExistsException extends RuntimeException {
 

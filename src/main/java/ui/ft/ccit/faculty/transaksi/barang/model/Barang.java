@@ -1,4 +1,4 @@
-package ui.ft.ccit.faculty.transaksi.barang;
+package ui.ft.ccit.faculty.transaksi.barang.model;
 
 import jakarta.persistence.*;
 
@@ -14,7 +14,7 @@ public class Barang {
     private String nama;
 
     @Column(name = "stok")
-    private Integer stok;
+    private Short stok;
 
     @Column(name = "harga")
     private Double harga;
@@ -22,8 +22,8 @@ public class Barang {
     @Column(name = "persen_laba")
     private Double persenLaba;
 
-    @Column(name = "diskon")
-    private Double diskon;
+    @Column(name = "diskon", nullable = false)
+    private Double diskon = 0.0;
 
     @Column(name = "id_jenis_brg")
     private Byte idJenisBarang;
@@ -35,7 +35,19 @@ public class Barang {
         // for JPA
     }
 
-    public Barang(String idBarang, String nama, Integer stok, Double harga,
+    public Barang(String idBarang, String nama, Short stok, Double harga,
+            Double persenLaba, Byte idJenisBarang, String idPemasok) {
+        this.idBarang = idBarang;
+        this.nama = nama;
+        this.stok = stok;
+        this.harga = harga;
+        this.persenLaba = persenLaba;
+        this.diskon = 0.0;
+        this.idJenisBarang = idJenisBarang;
+        this.idPemasok = idPemasok;
+    }
+
+    public Barang(String idBarang, String nama, Short stok, Double harga,
             Double persenLaba, Double diskon,
             Byte idJenisBarang, String idPemasok) {
         this.idBarang = idBarang;
@@ -66,11 +78,11 @@ public class Barang {
         this.nama = nama;
     }
 
-    public Integer getStok() {
+    public Short getStok() {
         return stok;
     }
 
-    public void setStok(Integer stok) {
+    public void setStok(Short stok) {
         this.stok = stok;
     }
 
