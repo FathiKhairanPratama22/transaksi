@@ -8,6 +8,7 @@ import ui.ft.ccit.faculty.transaksi.pelanggan.model.PelangganRepository;
 import java.util.List;
 
 @Service
+@SuppressWarnings("null")
 @Transactional
 public class PelangganService {
     private final PelangganRepository repository;

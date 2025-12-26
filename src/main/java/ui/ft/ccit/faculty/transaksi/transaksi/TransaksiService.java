@@ -12,6 +12,7 @@ import ui.ft.ccit.faculty.transaksi.transaksi.model.DetailTransaksi;
 import java.util.List;
 
 @Service
+@SuppressWarnings("null")
 @Transactional
 public class TransaksiService {
     private final TransaksiRepository repository;

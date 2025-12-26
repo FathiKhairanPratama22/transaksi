@@ -8,6 +8,7 @@ import ui.ft.ccit.faculty.transaksi.pemasok.model.Pemasok;
 import ui.ft.ccit.faculty.transaksi.pemasok.model.PemasokRepository;
 
 @Service
+@SuppressWarnings("null")
 @Transactional
 public class PemasokService {
     private final PemasokRepository repository;

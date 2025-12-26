@@ -10,6 +10,7 @@ import ui.ft.ccit.faculty.transaksi.karyawan.model.KaryawanRepository;
 import java.util.List;
 
 @Service
+@SuppressWarnings("null")
 @Transactional
 public class KaryawanService {
     private final KaryawanRepository repository;

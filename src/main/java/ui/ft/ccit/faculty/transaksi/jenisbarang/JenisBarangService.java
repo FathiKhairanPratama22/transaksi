@@ -9,6 +9,7 @@ import ui.ft.ccit.faculty.transaksi.jenisbarang.model.JenisBarang;
 import ui.ft.ccit.faculty.transaksi.jenisbarang.model.JenisBarangRepository;
 
 @Service
+@SuppressWarnings("null")
 @Transactional
 public class JenisBarangService {
     private final JenisBarangRepository repository;
