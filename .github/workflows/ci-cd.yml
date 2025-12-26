@@ -15,11 +15,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Setup Java 25 (Oracle)
+    - name: Setup Java 21 (Temurin)
       uses: actions/setup-java@v4
       with:
-        distribution: oracle
-        java-version: '25'
+        distribution: 'temurin' 
+        java-version: '21'      
     
     - name: Verify Java version
       run: java -version
