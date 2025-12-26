@@ -1,10 +1,13 @@
 package ui.ft.ccit.faculty.transaksi.jenisbarang;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import ui.ft.ccit.faculty.transaksi.DataNotFoundException;
+// TAMBAHKAN BARIS INI:
+import ui.ft.ccit.faculty.transaksi.jenisbarang.model.JenisBarang;
+import ui.ft.ccit.faculty.transaksi.jenisbarang.model.JenisBarangRepository;
+
 @Service
 @Transactional
 public class JenisBarangService {

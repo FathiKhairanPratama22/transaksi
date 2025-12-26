@@ -16,6 +16,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        // ========== Tambahkan Jalur Swagger & OpenAPI (PENTING) ==========
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+
                         // ========== GET API publik ==========
                         .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
 
@@ -30,7 +33,7 @@ public class SecurityConfig {
                         // Selain yang di atas → butuh auth
                         .anyRequest().authenticated())
 
-                // Resource server JWT (tanpa form login, tanpa redirect Google)
+                // Resource server JWT
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
 
         return http.build();

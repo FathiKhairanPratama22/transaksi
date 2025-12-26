@@ -43,19 +43,16 @@ public class OpenApiConfig {
         /*
          * ======================================================
          * ENTITY REGISTRY (1 BARIS = 1 TABEL)
-         * 
-         * SESUAIKAN DENGAN NAMA PATH YANG ADA DI REQUEST MAPPING. Contoh:
-         * static final List<String> ENTITIES = List.of(
-         * "barang",
-         * "pemasok",
-         * "pelanggan",
-         * "transaksi");
-         * 
-         * 
+         * * SESUAIKAN DENGAN NAMA PATH YANG ADA DI REQUEST MAPPING.
          * ======================================================
          */
         static final List<String> ENTITIES = List.of(
-                        "barang");
+                        "barang",
+                        "jenis-barang",
+                        "pemasok",
+                        "karyawan",
+                        "pelanggan",
+                        "transaksi");
 
         /*
          * ======================================================
